@@ -3,6 +3,7 @@ node_modules/
 .venv/
 venv/
 __pycache__/
+*.py[cod]
 target/
 vendor/
 .gradle/
@@ -12,3 +13,22 @@ DerivedData/
 .cache/
 .DS_Store
 *.log
+logs/*
+
+# LeQutisOS runtime state
+state/*.db
+state/*.db-*
+state/*.db-shm
+state/*.db-wal
+database/*.db
+database/*.db-wal
+database/*.db-shm
+telemetry/*.log
+
+# Local secrets
+.env
+*.pem
+*.key
+*token*
+*secret*
+*password*
