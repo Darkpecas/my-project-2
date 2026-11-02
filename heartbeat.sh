@@ -1,3 +1,15 @@
-#!/data/data/com.termux/files/usr/bin/sh
-cd "$HOME/LeQutisOS"
-python core/lequtis.py heartbeat
+#!/bin/sh
+set -eu
+
+LEQUTIS_DIR="${LEQUTIS_DIR:-}"
+if [ -z "$LEQUTIS_DIR" ]; then
+    if [ -d "$HOME/LeQutisOS" ]; then
+        LEQUTIS_DIR="$HOME/LeQutisOS"
+    else
+        LEQUTIS_DIR="$(cd "$(dirname "$0")" && pwd)"
+    fi
+fi
+cd "$LEQUTIS_DIR"
+
+PYTHON="${PYTHON:-$(command -v python3 || command -v python || echo python)}"
+"$PYTHON" core/lequtis.py heartbeat
